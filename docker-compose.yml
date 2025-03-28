@@ -1,0 +1,20 @@
+servivces:
+    postgres:
+      image: postgres:16
+      container_name: pg-cont
+      environment:
+        POSTGRES_USER: pasto_admin
+        POSTGRES_PASSWORD: 135279
+        POSTGRES_DB: moreno_db
+      ports:
+        - "5432:5432"
+    
+    cloudbeaver:
+      image: dbeaver/cloudbeaver:lastest
+      container_name: cloudbeaver-cont
+      ports:
+        - "8888:8978"
+      restart: unless-stopped
+      environment: 
+        - REDIS_PASSWORD=13579
+        - REDIS_USER=pasto
